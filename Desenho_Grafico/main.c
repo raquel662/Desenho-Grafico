@@ -7,73 +7,23 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-//#include "gerarImagem.h"
-void gerarImagem(char nome[100],int linha,int coluna,int r,int g, int b){
-	int tamanho[linha][coluna];
-	FILE *imagem;// criar ponteiro que aponta em tipos de data file
-
-
-	imagem = fopen(nome, "wb");
-
-
-	 /* Testa se a abertura do arquivo deu certo
-    fopen retorna ponteiro pro arquivo em sucesso
-    e nulo caso o contrario */
-	if (imagem == NULL)
-	{
-		printf("Erro na abertura!!\n");
-		exit(1);
-	}
-
-	fprintf(imagem,"P3\n %i %i \n255 \n",linha,coluna);
-
-
-
-	struct cor
-	{
-		int R;
-		int G;
-		int B;
-
-	};
-	struct cor cores = {r,g,b};
-	/* O for abaixo repete quantas vezes forem necessarias a cor
-	de fundo da imagem
-	*/
-	for (int j = 0; j < linha; ++j)
-    {
-       for (int i = 0; i < coluna; ++i)
-       {
-            fprintf(imagem, "%i %i %i\n", cores.R,cores.G,cores.B);
-
-
-       }
-   }
-    //fclose(imagem);//Salva o arquivo
-	//for (int i = 0; i < contCor; ++i)
-	//{
-	//	fprintf(imagem,"%s\n",cor);
-	//}
-}
-
-
+#include "gerarImagem.h"
 
 int main(int argc, char const *argv[])
 {
 
-	char nome[100],cor[20];
+	char nome[100];
     int linha,coluna,R,G,B;
 
 
 
     printf("Digite a cor da imagem na sequencia: R G B\n");
     scanf("%i %i %i", &R, &G, &B);
-    printf("Digite a tamanho da imagem");
+    printf("Digite a tamanho da imagem\n");
     scanf("%i %i",&linha, &coluna);
     printf("Digite o nome do arquivo: 'exemplo.ppm' \n");
-
     scanf("%s",nome);
-    char tamanho[linha][coluna];
+    int matizImagem[linha][coluna];
 
 
     gerarImagem(nome,linha,coluna,R,G,B);

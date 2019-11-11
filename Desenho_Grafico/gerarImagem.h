@@ -1,8 +1,8 @@
 /*
- * gerarImagem.h
  *
- *  Created on: 9 de nov de 2019
- *      Author: raquel
+ *
+ *
+ *
  */
 
 #ifndef GERARIMAGEM_H_

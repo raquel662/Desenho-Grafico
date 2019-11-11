@@ -49,9 +49,6 @@ void gerarImagem(char nome[100],int linha,int coluna,int r,int g, int b){
 
        }
    }
-    //fclose(imagem);//Salva o arquivo
-	//for (int i = 0; i < contCor; ++i)
-	//{
-	//	fprintf(imagem,"%s\n",cor);
-	//}
+   fclose(imagem);//fechar o arquivo
+
 }

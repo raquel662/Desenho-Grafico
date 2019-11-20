@@ -7,12 +7,16 @@
 #ifndef LINHA_H
 #define LINHA_H
 
-#include "ponto.h"
 
-typedef struct linha
+typedef struct pixel
 {
-  Ponto ponto_A;
-  Ponto ponto_B;
-}Linha;
+	int R;
+	int G;
+	int B;
 
+}Pixel;
+
+
+
+void DesenharLinha(int x, int y, int x2, int y2,int linhas, int colunas,int r,int g,int b, Pixel desenho[linhas][colunas]);
 #endif /* LINHA_H */

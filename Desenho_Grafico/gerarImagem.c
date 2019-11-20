@@ -1,15 +1,11 @@
-/*
- * gerarImagem.c
- *
- *  Created on: 9 de nov de 2019
- *      Author: raquel
- */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "gerarImagem.h"
+#include "linha.h"
 
-void gerarImagem(char nome[100],int linha,int coluna,int r,int g, int b){
-	int tamanho[linha][coluna];
+void gerarImagem(char nome[100],int linhas,int colunas,int r,int g, int b,Pixel desenho[linhas][colunas]){
+
 	FILE *imagem;// criar ponteiro que aponta em tipos de data file
 
 
@@ -25,30 +21,27 @@ void gerarImagem(char nome[100],int linha,int coluna,int r,int g, int b){
 		exit(1);
 	}
 
-	fprintf(imagem,"P3\n %i %i \n255 \n",linha,coluna);
+	fprintf(imagem,"P3\n %i %i \n255 \n",linhas,colunas);
 
-
-
-	struct cor
-	{
-		int R;
-		int G;
-		int B;
-
-	};
-	struct cor cores = {r,g,b};
-	/* O for abaixo repete quantas vezes forem necessarias a cor
-	de fundo da imagem
-	*/
-	for (int j = 0; j < linha; ++j)
+	 for (int j = 0; j < linhas; ++j)
     {
-       for (int i = 0; i < coluna; ++i)
+       for (int i = 0; i < colunas; ++i)
        {
-            fprintf(imagem, "%i %i %i\n", cores.R,cores.G,cores.B);
+
+            fprintf(imagem," %d %d %d \n",desenho[j][i].R,desenho[j][i].G,desenho[j][i].B);
+
 
 
        }
-   }
-   fclose(imagem);//fechar o arquivo
+    }
+    fclose(imagem);
+	/* O for abaixo repete quantas vezes forem necessarias a cor
+	de fundo da imagem
+	*/
 
+    //fclose(imagem);//Salva o arquivo
+	//for (int i = 0; i < contCor; ++i)
+	//{
+	//	fprintf(imagem,"%s\n",cor);
+	//}
 }
